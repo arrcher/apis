@@ -2,5 +2,61 @@
     "swagger": "2.0",
     "info": {
         "title": "apis"
+    },
+    "paths": {
+        "/users": {
+            "get": {
+                "description": "Returns the list of users",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "type": "integer"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "#/definitions/user"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/customers": {}
+    },
+    "definitions": {
+        "user": {
+            "properties": {
+                "id": {
+                    "description": "User id",
+                    "type": "integer"
+                },
+                "firstName": {
+                    "description": "User first name",
+                    "type": "string"
+                },
+                "lastName": {
+                    "description": "User last name",
+                    "type": "string"
+                },
+                "displayName": {
+                    "description": "User display name, combination of name, first name and last name",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "User unique short name",
+                    "type": "string"
+                }
+            }
+        }
     }
 }
